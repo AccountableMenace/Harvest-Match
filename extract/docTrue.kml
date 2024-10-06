@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+  <Folder>
+    <name>Sentinel-Hub Overlays</name>
+    <description>Ground overlays</description>
+    <GroundOverlay>
+      <name>Sentinel-Hub overlay</name>
+        <Icon>
+          <href>image.png</href>
+        </Icon>
+        <LatLonBox>
+          <north>54.81770059619873</north>
+          <south>54.546579538405034</south>
+          <east>25.488281250000004</east>
+          <west>24.55169677734375</west>
+        </LatLonBox>
+            <LookAt>
+
+            <longitude>25.019989013671875</longitude>
+
+            <latitude>54.68214006730189</latitude>
+
+            <altitude>50477.02412476752</altitude>
+
+            <tilt>0</tilt>
+
+            <altitudeMode>relativeToGround</altitudeMode>
+
+        </LookAt>
+      </GroundOverlay>
+  </Folder>
+</kml>
