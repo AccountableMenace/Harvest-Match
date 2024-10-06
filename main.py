@@ -8,9 +8,11 @@ from lxml import etree
 
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+from matplotlib_scalebar.scalebar import ScaleBar
+
 import cv2
 import numpy as np
+import math
 
 from imageShape import imageShape
 from KMLReader import KMLReader
@@ -121,8 +123,21 @@ finalShape = imageShape(finalImage, shManager2.imShList[0].extent, False)
 
 # shManager2.ShowAll(plt)
 plt.imshow(finalImage, extent = finalShape.extent, label = "test")
-plt.text(finalShape.left + 0.02, finalShape.top - 0.025, "Soil moisture", bbox={'facecolor': 'white', 'pad': 7})
-plt.title("test")
+# plt.text(finalShape.left + 0.02, finalShape.top - 0.025, "Soil moisture", bbox={'facecolor': 'white', 'pad': 7})
+plt.text(22.000, 55.555, "Kvėdarna", fontsize = 9, color = 'w', weight='bold')
+plt.text(21.947, 55.544, "Pajūralis", fontsize = 9, color = 'w', weight='bold')
+plt.text(21.820714, 55.527078, "Bumbuliškė", fontsize = 9, color = 'w', weight='bold')
+plt.text(21.797028, 55.505812, "Stemplės", fontsize = 9, color = 'w', weight='bold')
+
+
+plt.title("Soil moisture map")
+
+#meters per degree
+meterScale = 110000 * math.cos(math.pi/180 * finalShape.top) # horizontal meters per degree
+print(finalShape.getResolution()[0])
+scalebar = ScaleBar(meterScale)
+plt.gca().add_artist(scalebar)
+
 plt.show()
 
 
